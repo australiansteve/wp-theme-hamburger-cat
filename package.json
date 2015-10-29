@@ -11,8 +11,8 @@
     "gulp-sass": "^2.0.1",
     "gulp-uglify": "^1.2.0"
   },
-  "name": "shipshapeportfolio",
-  "description": "Shipshapeportfolio - Zeek Starter Theme ===",
+  "name": "hamburgercat",
+  "description": "Hamburgercat - Zeek Starter Theme ===",
   "version": "0.0.1",
   "main": "gulpfile.js",
   "dependencies": {
@@ -23,12 +23,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/australiansteve/shipshapeportfolio"
+    "url": "https://github.com/australiansteve/hamburgercat"
   },
   "author": "Zeek Interactive",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/australiansteve/shipshapeportfolio/issues"
+    "url": "https://github.com/australiansteve/hamburgercat/issues"
   },
-  "homepage": "https://github.com/australiansteve/shipshapeportfolio"
+  "homepage": "https://github.com/australiansteve/hamburgercat"
 }

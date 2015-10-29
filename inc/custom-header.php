@@ -12,37 +12,37 @@
 	<?php endif; // End header image check. ?>
 
  *
- * @package Shipshapeportfolio
+ * @package Hamburgercat
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses shipshapeportfolio_header_style()
- * @uses shipshapeportfolio_admin_header_style()
- * @uses shipshapeportfolio_admin_header_image()
+ * @uses hamburgercat_header_style()
+ * @uses hamburgercat_admin_header_style()
+ * @uses hamburgercat_admin_header_image()
  */
-function shipshapeportfolio_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'shipshapeportfolio_custom_header_args', array(
+function hamburgercat_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'hamburgercat_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
 		'height'                 => 250,
 		'flex-height'            => true,
-		'wp-head-callback'       => 'shipshapeportfolio_header_style',
-		'admin-head-callback'    => 'shipshapeportfolio_admin_header_style',
-		'admin-preview-callback' => 'shipshapeportfolio_admin_header_image',
+		'wp-head-callback'       => 'hamburgercat_header_style',
+		'admin-head-callback'    => 'hamburgercat_admin_header_style',
+		'admin-preview-callback' => 'hamburgercat_admin_header_image',
 	) ) );
 }
-add_action( 'after_setup_theme', 'shipshapeportfolio_custom_header_setup' );
+add_action( 'after_setup_theme', 'hamburgercat_custom_header_setup' );
 
-if ( ! function_exists( 'shipshapeportfolio_header_style' ) ) :
+if ( ! function_exists( 'hamburgercat_header_style' ) ) :
 /**
  * Styles the header image and text displayed on the blog
  *
- * @see shipshapeportfolio_custom_header_setup().
+ * @see hamburgercat_custom_header_setup().
  */
-function shipshapeportfolio_header_style() {
+function hamburgercat_header_style() {
 	$header_text_color = get_header_textcolor();
 
 	// If no custom options for text are set, let's bail
@@ -75,15 +75,15 @@ function shipshapeportfolio_header_style() {
 	</style>
 	<?php
 }
-endif; // shipshapeportfolio_header_style
+endif; // hamburgercat_header_style
 
-if ( ! function_exists( 'shipshapeportfolio_admin_header_style' ) ) :
+if ( ! function_exists( 'hamburgercat_admin_header_style' ) ) :
 /**
  * Styles the header image displayed on the Appearance > Header admin panel.
  *
- * @see shipshapeportfolio_custom_header_setup().
+ * @see hamburgercat_custom_header_setup().
  */
-function shipshapeportfolio_admin_header_style() {
+function hamburgercat_admin_header_style() {
 ?>
 	<style type="text/css">
 		.appearance_page_custom-header #headimg {
@@ -103,15 +103,15 @@ function shipshapeportfolio_admin_header_style() {
 	</style>
 <?php
 }
-endif; // shipshapeportfolio_admin_header_style
+endif; // hamburgercat_admin_header_style
 
-if ( ! function_exists( 'shipshapeportfolio_admin_header_image' ) ) :
+if ( ! function_exists( 'hamburgercat_admin_header_image' ) ) :
 /**
  * Custom header image markup displayed on the Appearance > Header admin panel.
  *
- * @see shipshapeportfolio_custom_header_setup().
+ * @see hamburgercat_custom_header_setup().
  */
-function shipshapeportfolio_admin_header_image() {
+function hamburgercat_admin_header_image() {
 	$style = sprintf( ' style="color:#%s;"', get_header_textcolor() );
 ?>
 	<div id="headimg">
@@ -123,4 +123,4 @@ function shipshapeportfolio_admin_header_image() {
 	</div>
 <?php
 }
-endif; // shipshapeportfolio_admin_header_image
+endif; // hamburgercat_admin_header_image

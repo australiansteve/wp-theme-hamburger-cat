@@ -1,8 +1,8 @@
 <?php
 /**
- * Shipshapeportfolio Theme Customizer
+ * Hamburgercat Theme Customizer
  *
- * @package Shipshapeportfolio
+ * @package Hamburgercat
  */
 
 /**
@@ -10,17 +10,17 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function shipshapeportfolio_customize_register( $wp_customize ) {
+function hamburgercat_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 }
-add_action( 'customize_register', 'shipshapeportfolio_customize_register' );
+add_action( 'customize_register', 'hamburgercat_customize_register' );
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
-function shipshapeportfolio_customize_preview_js() {
-	wp_enqueue_script( 'shipshapeportfolio_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
+function hamburgercat_customize_preview_js() {
+	wp_enqueue_script( 'hamburgercat_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
 }
-add_action( 'customize_preview_init', 'shipshapeportfolio_customize_preview_js' );
+add_action( 'customize_preview_init', 'hamburgercat_customize_preview_js' );

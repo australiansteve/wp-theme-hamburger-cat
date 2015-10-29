@@ -2,7 +2,7 @@
 /**
  * The template for displaying all single posts.
  *
- * @package Shipshapeportfolio
+ * @package Hamburgercat
  */
 
 get_header(); ?>

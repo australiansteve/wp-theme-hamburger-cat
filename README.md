@@ -1,4 +1,4 @@
-#Shipshapeportfolio - Zeek Starter Theme
+#Hamburgercat - Zeek Starter Theme
 
 This is the Zeek Starter theme, based on <a href="http://underscores.me/">Underscores</a> and Foundation 5.5.1.
 
@@ -20,7 +20,7 @@ The theme dependencies are listed in our `package.json` file. If you run `npm in
 
 Using the `gulpfile.js` file, gulp will handle Sass compiling, vendor-prefixing, CSS/JS minification and browser reloading.  It will automate a lot of tedious tasks for us.  Magic!
 
-**Important:**  you’ll need to change both the proxy string from `'heisenberg.dev/'` to your local URL and the container string from `'shipshapeportfolio'` to your project name.
+**Important:**  you’ll need to change both the proxy string from `'heisenberg.dev/'` to your local URL and the container string from `'hamburgercat'` to your project name.
 
 Once you’ve adjusted the two strings, from Terminal or Command Prompt run `gulp`.  Gulp will watch your Sass files and will compile when a change is made.  Also, <a href="http://www.browsersync.io/docs/gulp/" title="BrowserSync documentation">BrowserSync</a> will run and inject new CSS after compilation and will reload the browser when your PHP files change.
 

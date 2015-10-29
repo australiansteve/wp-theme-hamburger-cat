@@ -2,7 +2,7 @@
 /**
  * Template Name: Title (12), Info (8) - Download (4)
  * 
- * @package shipeshapeportfolio
+ * @package hamburgercat
  */
 
 ?>

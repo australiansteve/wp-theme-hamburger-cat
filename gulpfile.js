@@ -123,7 +123,7 @@ gulp.task('deploylocal', function() {
 		'screenshot.png',
 		'*.php'];
 
-	var dest = '/var/www/html/theme-dev/wp-content/themes/shipshapeportfolio';
+	var dest = '/var/www/html/theme-dev/wp-content/themes/hamburgercat';
 
 	return gulp.src(files, {base:"."})
 	        .pipe(gulp.dest(dest));

@@ -1,8 +1,8 @@
 <?php
 /**
- * Shipshapeportfolio functions and definitions
+ * Hamburgercat functions and definitions
  *
- * @package Shipshapeportfolio
+ * @package Hamburgercat
  */
 
 /**
@@ -12,7 +12,7 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
 
-if ( ! function_exists( 'shipshapeportfolio_setup' ) ) :
+if ( ! function_exists( 'hamburgercat_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -20,15 +20,15 @@ if ( ! function_exists( 'shipshapeportfolio_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function shipshapeportfolio_setup() {
+function hamburgercat_setup() {
 
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on Shipshapeportfolio, use a find and replace
-	 * to change 'shipshapeportfolio' to the name of your theme in all the template files
+	 * If you're building a theme based on Hamburgercat, use a find and replace
+	 * to change 'hamburgercat' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( 'shipshapeportfolio', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'hamburgercat', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -50,7 +50,7 @@ function shipshapeportfolio_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'shipshapeportfolio' ),
+		'primary' => __( 'Primary Menu', 'hamburgercat' ),
 	) );
 
 	/*
@@ -71,7 +71,7 @@ function shipshapeportfolio_setup() {
 
 	// Set up the WordPress core custom background feature.
 	/*
-	add_theme_support( 'custom-background', apply_filters( 'shipshapeportfolio_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'hamburgercat_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
@@ -80,17 +80,17 @@ function shipshapeportfolio_setup() {
 	//Set up AUSTEVE custom background functionality
 
 }
-endif; // shipshapeportfolio_setup
-add_action( 'after_setup_theme', 'shipshapeportfolio_setup' );
+endif; // hamburgercat_setup
+add_action( 'after_setup_theme', 'hamburgercat_setup' );
 
 /**
  * Register widget area.
  *
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
-function shipshapeportfolio_widgets_init() {
+function hamburgercat_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'shipshapeportfolio' ),
+		'name'          => __( 'Sidebar', 'hamburgercat' ),
 		'id'            => 'sidebar-1',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -99,30 +99,30 @@ function shipshapeportfolio_widgets_init() {
 		'after_title'   => '</h1>',
 	) );
 }
-add_action( 'widgets_init', 'shipshapeportfolio_widgets_init' );
+add_action( 'widgets_init', 'hamburgercat_widgets_init' );
 
 
 /**
  * Enqueue styles.
  */
 
-if ( !function_exists( 'shipshapeportfolio_styles' ) ) :
+if ( !function_exists( 'hamburgercat_styles' ) ) :
 
-	function shipshapeportfolio_styles() {
+	function hamburgercat_styles() {
 
 		// Conditional css for debug or production mode
 
 		if ( WP_DEBUG ) :
 
 			// Enqueue our debug stylesheet [development mode - non-minified]
-			wp_enqueue_style( 'shipshapeportfolio_styles', get_stylesheet_directory_uri() . '/assets/dist/css/app.css', '', '9' );
+			wp_enqueue_style( 'hamburgercat_styles', get_stylesheet_directory_uri() . '/assets/dist/css/app.css', '', '9' );
 			wp_enqueue_style( 'fontawesome_styles', get_stylesheet_directory_uri() . '/assets/dist/css/font-awesome.css', '', '9' );
 			wp_enqueue_style( 'home_styles', get_stylesheet_directory_uri() . '/style.css', '', '9' );
 
 		else :
 
 			// Enqueue our minified stylesheet [production mode - minified stylesheet]
-			wp_enqueue_style( 'shipshapeportfolio_styles', get_stylesheet_directory_uri() . '/assets/dist/css/app.min.css', '', '9' );
+			wp_enqueue_style( 'hamburgercat_styles', get_stylesheet_directory_uri() . '/assets/dist/css/app.min.css', '', '9' );
 			wp_enqueue_style( 'fontawesome_styles', get_stylesheet_directory_uri() . '/assets/dist/css/font-awesome.min.css', '', '9' );
 			wp_enqueue_style( 'home_styles', get_stylesheet_directory_uri() . '/style.css', '', '9' );
 
@@ -132,7 +132,7 @@ if ( !function_exists( 'shipshapeportfolio_styles' ) ) :
 	}
 
 
-add_action( 'wp_enqueue_scripts', 'shipshapeportfolio_styles' );
+add_action( 'wp_enqueue_scripts', 'hamburgercat_styles' );
 
 endif;
 
@@ -142,7 +142,7 @@ endif;
 /**
  * Enqueue scripts.
  */
-function shipshapeportfolio_scripts() {
+function hamburgercat_scripts() {
 
 	// Add modernizer.js for shimming HTML5 elements that older browsers may not detect and for mobile detection
 	wp_enqueue_script ( 'modernizr', get_template_directory_uri() . '/assets/components/modernizr/modernizr.js', '', '', false );
@@ -157,23 +157,23 @@ function shipshapeportfolio_scripts() {
 	if ( WP_DEBUG ) {
 
 		// Enqueue our full version if in development mode
-		wp_enqueue_script( 'shipshapeportfolio_appjs', get_template_directory_uri() . '/assets/dist/js/app.js', array( 'jquery' ), '', true );
+		wp_enqueue_script( 'hamburgercat_appjs', get_template_directory_uri() . '/assets/dist/js/app.js', array( 'jquery' ), '', true );
 
 	} else {
 
 		// Enqueue minified js if in production mode
-		wp_enqueue_script( 'shipshapeportfolio_appjs', get_template_directory_uri() . '/assets/dist/js/app.min.js', array( 'jquery' ), '', true );
+		wp_enqueue_script( 'hamburgercat_appjs', get_template_directory_uri() . '/assets/dist/js/app.min.js', array( 'jquery' ), '', true );
 	}
 
-	wp_enqueue_script( 'shipshapeportfolio-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	wp_enqueue_script( 'hamburgercat-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
-	wp_enqueue_script( 'shipshapeportfolio-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'hamburgercat-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'shipshapeportfolio_scripts' );
+add_action( 'wp_enqueue_scripts', 'hamburgercat_scripts' );
 
 /**
  * Implement the Custom Header feature.
@@ -212,9 +212,9 @@ function foundation_header(){
 	<?php
 }
 
-add_filter( 'wp_nav_menu', 'shipshapeportfolio_nav_menu', 10, 2 );
+add_filter( 'wp_nav_menu', 'hamburgercat_nav_menu', 10, 2 );
 
-function shipshapeportfolio_nav_menu( $menu ){
+function hamburgercat_nav_menu( $menu ){
 	$menu = str_replace('current-menu-item', 'current-menu-item active', $menu);
 	return $menu;
 }
