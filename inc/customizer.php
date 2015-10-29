@@ -14,6 +14,29 @@ function hamburgercat_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+
+	//All our sections, settings, and controls will be added here
+   	$wp_customize->add_setting( 'austeve_background_image' );
+
+	$wp_customize->add_section( 'hamburgercat_bg_section' , array(
+	    'title'       => __( 'Background', 'hamburgercat' ),
+	    'priority'    => 30,
+	    'description' => 'Upload a background image',
+	) );
+
+   	$wp_customize->add_control( 
+   		new WP_Customize_Image_Control( 
+   			$wp_customize, 
+   			'austeve_background_image', 
+   			array(
+			    'label'    => __( 'Image:', 'hamburgercat' ),
+			    'section'  => 'hamburgercat_bg_section',
+			    'settings' => 'austeve_background_image',
+			) 
+		) 
+	);
+
+
 }
 add_action( 'customize_register', 'hamburgercat_customize_register' );
 

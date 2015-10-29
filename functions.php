@@ -69,16 +69,6 @@ function hamburgercat_setup() {
 		'aside', 'image', 'video', 'quote', 'link',
 	) );
 
-	// Set up the WordPress core custom background feature.
-	/*
-	add_theme_support( 'custom-background', apply_filters( 'hamburgercat_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
-	*/
-
-	//Set up AUSTEVE custom background functionality
-
 }
 endif; // hamburgercat_setup
 add_action( 'after_setup_theme', 'hamburgercat_setup' );
