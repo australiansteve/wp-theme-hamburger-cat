@@ -12,6 +12,8 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
 
+include( get_template_directory() . '/widget-header.php');
+
 if ( ! function_exists( 'hamburgercat_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -72,25 +74,6 @@ function hamburgercat_setup() {
 }
 endif; // hamburgercat_setup
 add_action( 'after_setup_theme', 'hamburgercat_setup' );
-
-/**
- * Register widget area.
- *
- * @link http://codex.wordpress.org/Function_Reference/register_sidebar
- */
-function hamburgercat_widgets_init() {
-	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'hamburgercat' ),
-		'id'            => 'sidebar-1',
-		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
-	) );
-}
-add_action( 'widgets_init', 'hamburgercat_widgets_init' );
-
 
 /**
  * Enqueue styles.
@@ -164,6 +147,18 @@ function hamburgercat_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'hamburgercat_scripts' );
+
+function enqueue_widget_scripts($hook) {
+    if ( 'widgets.php' != $hook ) {
+        return;
+    }
+
+    wp_enqueue_script('thickbox', null, array('jquery'));
+    wp_enqueue_script('media-upload');
+    wp_enqueue_style('thickbox');
+	wp_enqueue_script( 'hamburgercat-image-uploads', get_template_directory_uri() . '/js/widget-header.js' );
+}
+add_action( 'admin_enqueue_scripts', 'enqueue_widget_scripts' );
 
 /**
  * Implement the Custom Header feature.

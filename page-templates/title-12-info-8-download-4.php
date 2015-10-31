@@ -16,9 +16,9 @@
 		<div class="small-12 columns">
 			<div class="row">
 				<div class="small-12 columns" id="austeve-site-title">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-						<h1 class="site-title"><img id="header-image" src="http://localhost/theme-dev/wp-content/uploads/2015/09/header1.png"/></h1>
-					</a>
+
+					<?php dynamic_sidebar('hamburgercat_header_sidebar'); ?>
+			
 				</div>
 			</div>
 			<div class="row">
