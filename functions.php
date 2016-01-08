@@ -105,11 +105,10 @@ if ( !function_exists( 'hamburgercat_styles' ) ) :
 	}
 
 
-add_action( 'wp_enqueue_scripts', 'hamburgercat_styles' );
+	add_action( 'wp_enqueue_scripts', 'hamburgercat_styles' );
+
 
 endif;
-
-
 
 
 /**
@@ -117,16 +116,10 @@ endif;
  */
 function hamburgercat_scripts() {
 
-	// Add modernizer.js for shimming HTML5 elements that older browsers may not detect and for mobile detection
-	wp_enqueue_script ( 'modernizr', get_template_directory_uri() . '/assets/components/modernizr/modernizr.js', '', '', false );
+	// Add Foundation JS to footer
+	wp_enqueue_script( 'foundation-js', get_template_directory_uri() . '/assets/dist/js/foundation.js', array( 'jquery' ), '6.1.1', true );
 
-	// Add fastclick.js file to footer (for help with devices with touch UIs)
-	wp_enqueue_script ( 'fastclick_js', get_template_directory_uri() . '/assets/components/fastclick/lib/fastclick.js', '', '', true );
-
-	// Add core Foundation js to footer
-	wp_enqueue_script( 'foundation-js', get_template_directory_uri() . '/assets/components/foundation/js/foundation.min.js', array( 'jquery' ), '5', true );
-
-	// Add our concatenated js file
+	// Add our concatenated JS file after Foundation
 	if ( WP_DEBUG ) {
 
 		// Enqueue our full version if in development mode
@@ -137,10 +130,6 @@ function hamburgercat_scripts() {
 		// Enqueue minified js if in production mode
 		wp_enqueue_script( 'hamburgercat_appjs', get_template_directory_uri() . '/assets/dist/js/app.min.js', array( 'jquery' ), '', true );
 	}
-
-	wp_enqueue_script( 'hamburgercat-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
-	wp_enqueue_script( 'hamburgercat-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -160,10 +149,6 @@ function enqueue_widget_scripts($hook) {
 }
 add_action( 'admin_enqueue_scripts', 'enqueue_widget_scripts' );
 
-/**
- * Implement the Custom Header feature.
- */
-//require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -185,21 +170,52 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
-add_filter('wp_head','foundation_header');
 
-function foundation_header(){
-	?>
-	<script type="text/javascript">
-		jQuery(document).ready(function($) {
-			$(document).foundation();
-		});
-	</script>
-	<?php
-}
 
 add_filter( 'wp_nav_menu', 'hamburgercat_nav_menu', 10, 2 );
 
 function hamburgercat_nav_menu( $menu ){
 	$menu = str_replace('current-menu-item', 'current-menu-item active', $menu);
 	return $menu;
+}
+
+
+/*******************************************************************************
+* Make oembed elements responsive. Add Foundation's .flex-video class wrapper
+* around any oembeds
+*******************************************************************************/
+
+add_filter( 'embed_oembed_html', 'hamburgercat_oembed_flex_wrapper', 10, 4 ) ;
+
+function hamburgercat_oembed_flex_wrapper( $html, $url, $attr, $post_ID ) {
+	$return = '<div class="flex-video">'.$html.'</div>';
+	return $return;
+}
+
+/*******************************************************************************
+* Custom login styles for the theme. Sass file is located in ./assets/login.scss
+* and is spit out to ./assets/dist/css/login.css by gulp. Functions are here so
+* that you can move it wherever works best for your project.
+*******************************************************************************/
+
+// Load the CSS
+add_action( 'login_enqueue_scripts', 'hamburgercat_login_css' );
+
+function hamburgercat_login_css() {
+	wp_enqueue_style( 'hamburgercat_login_css', get_template_directory_uri() .
+	'/assets/dist/css/login.css', false );
+}
+
+// Change header link to our site instead of wordpress.org
+add_filter( 'login_headerurl', 'hamburgercat_remove_logo_link' );
+
+function hamburgercat_remove_logo_link() {
+	return get_bloginfo( 'url' );
+}
+
+// Change logo title in from WordPress to our site name
+add_filter( 'login_headertitle', 'hamburgercat_change_login_logo_title' );
+
+function hamburgercat_change_login_logo_title() {
+	return get_bloginfo( 'name' );
 }

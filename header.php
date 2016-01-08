@@ -19,8 +19,8 @@
 
 <body <?php body_class(); ?>>
 
-<div id="background-div">
-	<div id="bgImage"/>
-</div>
+	<div id="background-div">
+		<div id="bgImage"/>
+	</div>
 
-<div id="page" class="hfeed site">
+	<div id="page" class="hfeed site">

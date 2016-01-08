@@ -1,23 +1,20 @@
 {
   "devDependencies": {
     "browser-sync": "^2.2.1",
-    "gulp": "^3.8.11",
+    "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.1.0",
     "gulp-concat": "^2.6.0",
     "gulp-jshint": "^1.11.0",
-    "gulp-minify-css": "^0.4.6",
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.0",
     "gulp-sass": "^2.0.1",
+    "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.2.0"
   },
   "name": "hamburgercat",
-  "description": "Hamburgercat - Zeek Starter Theme ===",
-  "version": "0.0.1",
+  "description": "Hamburgercat - WordPress Theme ===",
+  "version": "3.0.0",
   "main": "gulpfile.js",
-  "dependencies": {
-    "gulp": "^3.8.11"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,10 +22,13 @@
     "type": "git",
     "url": "https://github.com/australiansteve/hamburgercat"
   },
-  "author": "Zeek Interactive",
+  "author": "AustralianSteve",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/australiansteve/hamburgercat/issues"
   },
-  "homepage": "https://github.com/australiansteve/hamburgercat"
+  "homepage": "https://github.com/australiansteve/hamburgercat",
+  "dependencies": {
+    "foundation-sites": "^6.1.1"
+  }
 }
