@@ -71,6 +71,21 @@ function hamburgercat_setup() {
 		'aside', 'image', 'video', 'quote', 'link',
 	) );
 
+	/*
+	 * Register sidebars
+	 *
+	 */
+	$sidebars = get_theme_mod('austeve_num_sidebars', 0);
+    for ( $s = 1; $s <= $sidebars; $s++ ) {
+        register_sidebar( array(
+            'name'          => 'Front page content '.$s,
+            'id'            => 'austeve_content_'.$s,
+            'before_widget' => '<div class="columns">',
+            'after_widget'  => '</div>',
+            'before_title'  => '',
+            'after_title'   => '',
+        ) );
+    }
 }
 endif; // hamburgercat_setup
 add_action( 'after_setup_theme', 'hamburgercat_setup' );

@@ -17,22 +17,18 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
+<?php 
+	for($s = 1; $s <= get_theme_mod('austeve_num_sidebars', 0); $s++) {
+
+?>
 		<div class="row">
 
-			<div class="small-12 columns">
-				Site title
-			</div>
-
-			<div class="small-12 medium-8 columns">
-				Info
-			</div>
-			
-			<div class="small-12 medium-4 columns">
-				Download
-			</div>
+			<?php dynamic_sidebar( 'austeve_content_'.$s ); ?>
 			
 		</div>
-
+<?php
+	}
+?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

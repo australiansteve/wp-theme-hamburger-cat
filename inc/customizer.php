@@ -19,6 +19,7 @@ function hamburgercat_customize_register( $wp_customize ) {
    	$wp_customize->add_setting( 'austeve_background_image' );
    	$wp_customize->add_setting( 'austeve_background_opacity' );
    	$wp_customize->add_setting( 'austeve_logo_image' );
+   	$wp_customize->add_setting( 'austeve_num_sidebars' );
 
 	$wp_customize->add_section( 'hamburgercat_bg_section' , array(
 	    'title'       => __( 'Background', 'hamburgercat' ),
@@ -31,6 +32,32 @@ function hamburgercat_customize_register( $wp_customize ) {
 	    'priority'    => 30,
 	    'description' => 'Upload Images used in the theme here',
 	) );
+
+	//Number of sidebars
+	$wp_customize->add_control(
+	    new WP_Customize_Control(
+	        $wp_customize,
+	        'austeve_num_sidebars',
+	        array(
+	            'label'          => __( 'Rows of content:', 'hamburger_cat' ),
+	            'section'        => 'static_front_page',
+	            'settings'       => 'austeve_num_sidebars',
+	            'type'           => 'select',
+	            'choices'        => array(
+	                '0'   => __( 'None' ),
+	                '1'  => __( '1' ),
+	                '2'  => __( '2' ),
+	                '3'  => __( '3' ),
+	                '4'  => __( '4' ),
+	                '5'  => __( '5' ),
+	                '6'  => __( '6' ),
+	                '7'  => __( '7' ),
+	                '8'  => __( '8' ),
+	                '9'  => __( '9' )
+	            )
+	        )
+	    )
+	);
 
 	//Background Image
    	$wp_customize->add_control( 
