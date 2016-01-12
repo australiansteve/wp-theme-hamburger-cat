@@ -20,7 +20,38 @@
 <body <?php body_class(); ?>>
 
 	<div id="background-div">
-		<div id="bgImage"/>
+		<div id="bgImage">&nbsp;</div>
 	</div>
 
 	<div id="page" class="hfeed site">
+
+		<div class="row primary">
+
+			<div class="small-12 columns">
+
+				<div class="row">
+
+					<div class="small-12 columns" id="austeve-site-title">
+
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" >
+
+							<h1 class="site-title">
+
+								<?php 
+								if (get_theme_mod('austeve_logo_image') === '')
+								{
+									echo bloginfo('name');
+								}
+								else
+								{
+									echo "<img class='blog-logo' src='".get_theme_mod('austeve_logo_image')."'/>";
+								}
+								?>
+								
+							</h1>
+
+						</a>
+						
+					</div>
+
+				</div>

@@ -18,6 +18,7 @@ function hamburgercat_customize_register( $wp_customize ) {
 	//All our sections, settings, and controls will be added here
    	$wp_customize->add_setting( 'austeve_background_image' );
    	$wp_customize->add_setting( 'austeve_background_opacity' );
+   	$wp_customize->add_setting( 'austeve_logo_image' );
 
 	$wp_customize->add_section( 'hamburgercat_bg_section' , array(
 	    'title'       => __( 'Background', 'hamburgercat' ),
@@ -25,6 +26,13 @@ function hamburgercat_customize_register( $wp_customize ) {
 	    'description' => 'Upload a background image',
 	) );
 
+	$wp_customize->add_section( 'hamburgercat_images_section' , array(
+	    'title'       => __( 'Images', 'hamburgercat' ),
+	    'priority'    => 30,
+	    'description' => 'Upload Images used in the theme here',
+	) );
+
+	//Background Image
    	$wp_customize->add_control( 
    		new WP_Customize_Image_Control( 
    			$wp_customize, 
@@ -37,6 +45,7 @@ function hamburgercat_customize_register( $wp_customize ) {
 		) 
 	);
 
+   	//Background opacity
    	$wp_customize->add_control( 
    		'austeve_background_opacity', 
 		array(
@@ -45,6 +54,19 @@ function hamburgercat_customize_register( $wp_customize ) {
 			'settings' => 'austeve_background_opacity',
 			'type'     => 'text',
 		)
+	);
+
+   	//Logo
+   	$wp_customize->add_control( 
+   		new WP_Customize_Image_Control( 
+   			$wp_customize, 
+   			'austeve_logo_image', 
+   			array(
+			    'label'    => __( 'Logo:', 'hamburgercat' ),
+			    'section'  => 'title_tagline',
+			    'settings' => 'austeve_logo_image',
+			) 
+		) 
 	);
 
 }

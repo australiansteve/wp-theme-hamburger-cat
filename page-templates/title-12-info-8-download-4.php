@@ -12,15 +12,6 @@
 	get_header(); 
 
 ?>
-	<div class="row primary">
-		<div class="small-12 columns">
-			<div class="row">
-				<div class="small-12 columns" id="austeve-site-title">
-
-					<?php dynamic_sidebar('hamburgercat_header_sidebar'); ?>
-			
-				</div>
-			</div>
 			<div class="row">
 				
 				<div class="small-12 medium-4 medium-push-8 columns text-center austeve-shaded">
@@ -62,11 +53,3 @@
 				
 
 			</div>
-		</div>
-	</div>
-
-<?php
-
-	get_footer(); 
-
-?>

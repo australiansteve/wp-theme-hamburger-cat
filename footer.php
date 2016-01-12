@@ -8,6 +8,14 @@
  */
 ?>
 
+			</div>
+		</div>
+
+<?php
+
+	get_footer(); 
+
+?>
 		<footer id="colophon" class="site-footer" role="contentinfo">
 
 			<div>
