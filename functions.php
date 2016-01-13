@@ -152,6 +152,29 @@ function hamburgercat_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'hamburgercat_scripts' );
 
+function hamburgercat_layout_scripts() {
+
+	wp_register_script( 'hamburgercat-layout-js', get_template_directory_uri() . '/js/front-page-layout.js', array( 'jquery' ), '6.1.1', true );
+
+	$translation_array = array(
+		'content1' => get_theme_mod('austeve_content_layout_1', ''),
+		'content2' => get_theme_mod('austeve_content_layout_2', ''),
+		'content3' => get_theme_mod('austeve_content_layout_3', ''),
+		'content4' => get_theme_mod('austeve_content_layout_4', ''),
+		'content5' => get_theme_mod('austeve_content_layout_5', ''),
+		'content6' => get_theme_mod('austeve_content_layout_6', ''),
+		'content7' => get_theme_mod('austeve_content_layout_7', ''),
+		'content8' => get_theme_mod('austeve_content_layout_8', ''),
+		'content9' => get_theme_mod('austeve_content_layout_9', '')
+	);
+
+	wp_localize_script( 'hamburgercat-layout-js', 'LAYOUTVARS', $translation_array );
+
+	wp_enqueue_script( 'hamburgercat-layout-js');
+
+}
+add_action( 'wp_enqueue_scripts', 'hamburgercat_layout_scripts' );
+
 function enqueue_widget_scripts($hook) {
     if ( 'widgets.php' != $hook ) {
         return;

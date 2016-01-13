@@ -21,7 +21,7 @@ get_header(); ?>
 	for($s = 1; $s <= get_theme_mod('austeve_num_sidebars', 0); $s++) {
 
 ?>
-		<div class="row">
+		<div id="hc-content-<?php echo $s ; ?>" class="row hc-content">
 
 			<?php dynamic_sidebar( 'austeve_content_'.$s ); ?>
 			

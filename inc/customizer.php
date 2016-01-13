@@ -21,6 +21,7 @@ function hamburgercat_customize_register( $wp_customize ) {
    	$wp_customize->add_setting( 'austeve_logo_image' );
    	$wp_customize->add_setting( 'austeve_num_sidebars' );
 
+
 	$wp_customize->add_section( 'hamburgercat_bg_section' , array(
 	    'title'       => __( 'Background', 'hamburgercat' ),
 	    'priority'    => 30,
@@ -39,11 +40,11 @@ function hamburgercat_customize_register( $wp_customize ) {
 	        $wp_customize,
 	        'austeve_num_sidebars',
 	        array(
-	            'label'          => __( 'Rows of content:', 'hamburger_cat' ),
-	            'section'        => 'static_front_page',
-	            'settings'       => 'austeve_num_sidebars',
-	            'type'           => 'select',
-	            'choices'        => array(
+	            'label'         => __( 'Rows of content:', 'hamburger_cat' ),
+	            'section'       => 'static_front_page',
+	            'settings'      => 'austeve_num_sidebars',
+	            'type'          => 'select',
+	            'choices'       => array(
 	                '0'   => __( 'None' ),
 	                '1'  => __( '1' ),
 	                '2'  => __( '2' ),
@@ -58,6 +59,30 @@ function hamburgercat_customize_register( $wp_customize ) {
 	        )
 	    )
 	);
+
+	//Sidebar layouts
+	for ($l = 1; $l <= get_theme_mod('austeve_num_sidebars', 0); $l++)
+	{
+
+		$wp_customize->add_setting( 'austeve_content_layout_'.$l, array(
+			    'default' 	=> '12',
+			    'transport'	=> 'refresh',
+			)
+		);
+
+		$wp_customize->add_control(
+		    new WP_Customize_Control(
+		        $wp_customize,
+		        'austeve_content_layout_'.$l,
+		        array(
+		            'label'         => __( 'Row '.$l.' layout', 'hamburger_cat' ),
+		            'section'       => 'static_front_page',
+		            'settings'      => 'austeve_content_layout_'.$l,
+		            'type'          => 'text'
+		        )
+		    )
+		);
+	}
 
 	//Background Image
    	$wp_customize->add_control( 
@@ -103,7 +128,8 @@ add_action( 'customize_register', 'hamburgercat_customize_register' );
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function hamburgercat_customize_preview_js() {
-	wp_enqueue_script( 'hamburgercat_customizer', get_template_directory_uri().'/inc/js/customizer.js', array( 'customize-preview' ), '20130508', true );
+	wp_register_script( 'hamburgercat_customizer', get_template_directory_uri().'/inc/js/customizer.js', array( 'customize-preview' ), '20130508', true );
+	wp_enqueue_script( 'hamburgercat_customizer');
 }
 add_action( 'customize_preview_init', 'hamburgercat_customize_preview_js' );
 
