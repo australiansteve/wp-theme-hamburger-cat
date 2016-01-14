@@ -12,8 +12,6 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
 
-include( get_template_directory() . '/widget-header.php');
-
 if ( ! function_exists( 'hamburgercat_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -98,24 +96,10 @@ if ( !function_exists( 'hamburgercat_styles' ) ) :
 
 	function hamburgercat_styles() {
 
-		// Conditional css for debug or production mode
-
-		if ( WP_DEBUG ) :
-
-			// Enqueue our debug stylesheet [development mode - non-minified]
-			wp_enqueue_style( 'hamburgercat_styles', get_stylesheet_directory_uri() . '/assets/dist/css/app.css', '', '9' );
-			wp_enqueue_style( 'fontawesome_styles', get_stylesheet_directory_uri() . '/assets/dist/css/font-awesome.css', '', '9' );
-			wp_enqueue_style( 'home_styles', get_stylesheet_directory_uri() . '/style.css', '', '9' );
-
-		else :
-
-			// Enqueue our minified stylesheet [production mode - minified stylesheet]
-			wp_enqueue_style( 'hamburgercat_styles', get_stylesheet_directory_uri() . '/assets/dist/css/app.min.css', '', '9' );
-			wp_enqueue_style( 'fontawesome_styles', get_stylesheet_directory_uri() . '/assets/dist/css/font-awesome.min.css', '', '9' );
-			wp_enqueue_style( 'home_styles', get_stylesheet_directory_uri() . '/style.css', '', '9' );
-
-		endif;
-
+		// Enqueue our debug stylesheet [development mode - non-minified]
+		wp_enqueue_style( 'hamburgercat_styles', get_stylesheet_directory_uri() . '/assets/dist/css/app.css', '', '9' );
+		wp_enqueue_style( 'fontawesome_styles', get_stylesheet_directory_uri() . '/assets/dist/css/font-awesome.css', '', '9' );
+		wp_enqueue_style( 'home_styles', get_stylesheet_directory_uri() . '/style.css', '', '9' );
 
 	}
 
@@ -174,19 +158,6 @@ function hamburgercat_layout_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'hamburgercat_layout_scripts' );
-
-function enqueue_widget_scripts($hook) {
-    if ( 'widgets.php' != $hook ) {
-        return;
-    }
-
-    wp_enqueue_script('thickbox', null, array('jquery'));
-    wp_enqueue_script('media-upload');
-    wp_enqueue_style('thickbox');
-	wp_enqueue_script( 'hamburgercat-image-uploads', get_template_directory_uri() . '/js/widget-header.js' );
-}
-add_action( 'admin_enqueue_scripts', 'enqueue_widget_scripts' );
-
 
 /**
  * Custom template tags for this theme.

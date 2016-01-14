@@ -13,7 +13,7 @@
   },
   "name": "hamburgercat",
   "description": "Hamburgercat - WordPress Theme ===",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
