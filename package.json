@@ -13,7 +13,7 @@
   },
   "name": "hamburgercat",
   "description": "Hamburgercat - WordPress Theme ===",
-  "version": "3.2.0",
+  "version": "4.0.0",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/australiansteve/hamburgercat",
   "dependencies": {
-    "foundation-sites": "^6.1.1"
+    "foundation-sites": "^6.1.1",
+    "underscore": "~1.8.3"
   }
 }

@@ -117,6 +117,7 @@ function hamburgercat_scripts() {
 
 	// Add Foundation JS to footer
 	wp_enqueue_script( 'foundation-js', get_template_directory_uri() . '/assets/dist/js/foundation.js', array( 'jquery' ), '6.1.1', true );
+	wp_enqueue_script( 'underscore-js', get_template_directory_uri() . '/node_modules/underscore/underscore-min.js', array( 'jquery' ), '1.8.3', true );
 
 	// Add our concatenated JS file after Foundation
 	if ( WP_DEBUG ) {

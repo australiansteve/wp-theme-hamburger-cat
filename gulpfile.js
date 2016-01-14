@@ -151,6 +151,7 @@ gulp.task('deploylocal', function() {
 		'assets/components/modernizr/modernizr.js',
 		'assets/components/fastclick/lib/fastclick.js',
 		'assets/components/foundation/js/foundation.min.js',
+		'node_modules/underscore/underscore-min.js',
 		'assets/dist/**/*', 
 		'inc/**/*.*',
 		'js/**/*.js',
