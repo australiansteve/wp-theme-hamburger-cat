@@ -18,6 +18,16 @@
 	margin: 0;
 }
 
+#background-div {
+    z-index: -1;
+    min-width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
 #bgImage {
     background-position: 50% 100%;
     bottom: 0;
