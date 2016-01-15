@@ -12,26 +12,29 @@
 
 get_header(); ?>
 
-<div class="small-12 columns"><!-- .columns start -->
+<main id="main" class="site-main" role="main">
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<div class="row" id="primary" class="content-area">
 
-<?php 
-	for($s = 1; $s <= get_theme_mod('austeve_num_sidebars', 0); $s++) {
+		<div class="small-12 columns"><!-- .columns start -->
 
-?>
-		<div id="hc-content-<?php echo $s ; ?>" class="row hc-content">
+	<?php 
+			for($s = 1; $s <= get_theme_mod('austeve_num_sidebars', 0); $s++) {
 
-			<?php dynamic_sidebar( 'austeve_content_'.$s ); ?>
-			
-		</div>
-<?php
-	}
-?>
-		</main><!-- #main -->
-	</div><!-- #primary -->
+	?>
+				<div id="hc-content-<?php echo $s ; ?>" class="row hc-content">
 
-</div><!-- .columns end -->
+					<?php dynamic_sidebar( 'austeve_content_'.$s ); ?>
+					
+				</div>
+	<?php
+			}
+	?>
+
+		</div><!-- .columns end -->
+
+	</div><!-- #primary.row end -->
+
+</main><!-- #main -->
 
 <?php get_footer(); ?>

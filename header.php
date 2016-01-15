@@ -25,33 +25,29 @@
 
 	<div id="page" class="hfeed site">
 
-		<div class="row primary">
+		<div class="row">
 
-			<div class="small-12 columns">
+			<div class="small-12 columns" id="austeve-site-title">
 
-				<div class="row">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" >
 
-					<div class="small-12 columns" id="austeve-site-title">
+					<h1 class="site-title">
 
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" >
+						<?php 
+						if (get_theme_mod('austeve_logo_image') === '')
+						{
+							echo bloginfo('name');
+						}
+						else
+						{
+							echo "<img class='blog-logo' src='".get_theme_mod('austeve_logo_image')."'/>";
+						}
+						?>
 
-							<h1 class="site-title">
+					</h1>
 
-								<?php 
-								if (get_theme_mod('austeve_logo_image') === '')
-								{
-									echo bloginfo('name');
-								}
-								else
-								{
-									echo "<img class='blog-logo' src='".get_theme_mod('austeve_logo_image')."'/>";
-								}
-								?>
-								
-							</h1>
+				</a>
+				
+			</div>
 
-						</a>
-						
-					</div>
-
-				</div>
+		</div>
