@@ -160,6 +160,14 @@ function hamburgercat_layout_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'hamburgercat_layout_scripts' );
 
+function hamburgercat_admin_scripts() {
+
+	wp_register_script( 'hamburgercat-admin-js', get_template_directory_uri() . '/js/admin.js', array( 'jquery' ), '1.0', true );
+
+	wp_enqueue_script( 'hamburgercat-admin-js');
+}
+add_action( 'admin_enqueue_scripts', 'hamburgercat_admin_scripts' );
+
 /**
  * Custom template tags for this theme.
  */
@@ -180,6 +188,10 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
+/**
+ * Load default theme widgets.
+ */
+require get_template_directory() . '/widgets.php';
 
 
 add_filter( 'wp_nav_menu', 'hamburgercat_nav_menu', 10, 2 );
