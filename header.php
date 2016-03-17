@@ -34,7 +34,7 @@
 					<h1 class="site-title">
 
 						<?php 
-						if (get_theme_mod('austeve_logo_image') === '')
+						if (empty(get_theme_mod('austeve_logo_image')))
 						{
 							echo bloginfo('name');
 						}
