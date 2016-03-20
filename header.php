@@ -51,3 +51,22 @@
 			</div>
 
 		</div>
+
+		<div class="row">
+
+			<div class="small-12 columns" id="austeve-site-tagline">
+
+				<p class="site-description">
+
+					<?php 
+					if (get_theme_mod('austeve_display_tagline') == '1')
+					{
+						echo bloginfo('description');
+					}
+					?>
+
+				</p>
+				
+			</div>
+
+		</div>

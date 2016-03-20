@@ -20,6 +20,7 @@ function hamburgercat_customize_register( $wp_customize ) {
    	$wp_customize->add_setting( 'austeve_background_opacity' );
    	$wp_customize->add_setting( 'austeve_logo_image' );
    	$wp_customize->add_setting( 'austeve_num_sidebars' );
+   	$wp_customize->add_setting( 'austeve_display_tagline' );
 
 
 	$wp_customize->add_section( 'hamburgercat_bg_section' , array(
@@ -105,6 +106,17 @@ function hamburgercat_customize_register( $wp_customize ) {
 			'section'  => 'hamburgercat_bg_section',
 			'settings' => 'austeve_background_opacity',
 			'type'     => 'text',
+		)
+	);
+
+   	//Display tagline
+   	$wp_customize->add_control( 
+   		'austeve_display_tagline', 
+		array(
+			'label'    => __( 'Display tagline', 'hamburgercat' ),
+			'section'  => 'title_tagline',
+			'settings' => 'austeve_display_tagline',
+			'type'     => 'checkbox',
 		)
 	);
 
